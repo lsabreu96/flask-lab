@@ -4,7 +4,7 @@ from app.schemas import UsuarioSchema
 
 bp_usuario = Blueprint('bp_usuario', __name__, url_prefix='/usuario')
 usuario_schema = UsuarioSchema(session=db.session)
-usuarios_schema = UsuarioSchema(many=True)
+usuarios_schema = UsuarioSchema(many=True, session=db.session)
 
 # GET /usuario
 @bp_usuario.route('/', methods=['GET'])

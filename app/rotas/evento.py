@@ -4,7 +4,7 @@ from app.schemas import EventoSchema
 
 bp_evento = Blueprint('evento', __name__, url_prefix='/evento')
 evento_schema = EventoSchema(session=db.session)
-eventos_schema = EventoSchema(many=True)
+eventos_schema = EventoSchema(many=True, session=db.session)
 
 
 @bp_evento.route('/', methods=['GET'])
