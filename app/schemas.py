@@ -24,3 +24,4 @@ class PresencaSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Presenca
         load_instance = True
+        include_fk = True
