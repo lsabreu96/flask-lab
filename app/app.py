@@ -3,6 +3,7 @@ from app.modelos import db
 from app.rotas.usuario import bp_usuario
 from app.rotas.evento import bp_evento
 from app.rotas.presenca import bp_presenca
+from app.admin import configurar_admin
 import os 
 
 def create_app():
@@ -16,11 +17,9 @@ def create_app():
     app.register_blueprint(bp_evento)
     app.register_blueprint(bp_presenca)
 
+    configurar_admin(app)
+
     with app.app_context():
         db.create_all()
 
     return app
-
-if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)
